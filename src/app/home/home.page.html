@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="success">
+    <ion-title>
+      Mis notas
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="title-block">
+    <div class="heading">Mis notas</div>
+  </div>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Notas</ion-label>
+    </ion-list-header>
+    <ion-item *ngFor="let note of (notes | async)">
+      <ion-thumbnail slot="start">
+        <img src="assets/img/nota1.png">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{note.title}}</h2>
+        <p>{{note.content}}</p>
+        <ion-card-subtitle>{{note.createdAt | date: 'short'}}</ion-card-subtitle>
+      </ion-label>
+      <ion-button fill="outline" slot="end" color="success" [routerLink]="'/view-note/'+note.id">Ver</ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" [routerLink]="'/add-note'">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+<mat-toolbar color="accent">
+  <div class="toolbar">
+    <p >Skereeee</p>
+  </div>
+</mat-toolbar>
